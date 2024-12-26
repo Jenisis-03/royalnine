@@ -4,9 +4,15 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
+// Define the interface for the `api` object
+interface CarouselApi {
+  scrollNext: () => void;
+  scrollTo: (index: number) => void;
+}
+
 const Body = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [api, setApi] = useState();
+  const [api, setApi] = useState<CarouselApi | undefined>(undefined);
 
   const slides = [
     {
@@ -179,7 +185,7 @@ const Body = () => {
 
         {/* Carousel Section */}
         <div className="max-w-6xl mx-auto px-2 sm:px-6 lg:px-8 py-8 sm:py-16 carousel-bg">
-          <Carousel 
+          <Carousel
             className="relative w-full"
             setApi={setApi}
           >

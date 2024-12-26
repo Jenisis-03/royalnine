@@ -3,9 +3,9 @@ import "./globals.css"; // Tailwind CSS import
 import NavBar from "./component/NavBar"; // Import the navigation bar component
 
 export const metadata = {
-  title: "My Responsive Website",
+  title: "Royal 9 Engine Oil",
   description:
-    "A modern website built with Next.js, TypeScript, and TailwindCSS.",
+    "Where <Progress></Progress>erformance Meets Power",
 };
 
 export default function RootLayout({
