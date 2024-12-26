@@ -42,7 +42,7 @@
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "cmdk": "^1.0.0",
+    "cmdk": "^1.0.4",
     "cobe": "^0.6.3",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.5.1",
@@ -72,7 +72,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
-    "@types/react": "^19",
+    "@types/react": "^19.0.2",
     "@types/react-dom": "^19",
     "eslint": "^9.17.0",
     "eslint-config-next": "^15.1.2",
