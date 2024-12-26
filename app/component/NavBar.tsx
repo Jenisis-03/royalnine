@@ -31,7 +31,7 @@ const NavBar = () => {
           <div
             className={`hidden lg:flex flex-col ${
               isCollapsed ? "w-20" : "w-64"
-            } h-full transition-all duration-300 bg-[#000401] shadow-lg`}
+            } h-full transition-all duration-300 bg-[#F0F0F0] shadow-lg`}
           >
             <div className="flex items-center justify-between px-4 py-4">
               <h1
@@ -41,7 +41,7 @@ const NavBar = () => {
               >
                 <div className="flex flex-col items-start space-y-2">
                   <div className="flex items-baseline">
-                    <span className="text-5xl font-extrabold font-merriweather text-[#bcfd49]">
+                    <span className="text-5xl font-extrabold font-merriweather text-[#01411C]">
                       Royal
                     </span>
                     <span className="text-5xl font-extrabold text-[#ffc400] ml-2">
@@ -56,7 +56,7 @@ const NavBar = () => {
               <Button
                 variant="ghost"
                 onClick={() => setIsCollapsed(!isCollapsed)}
-                className="text-[#bcfd49] hover:text-[#bcfd49]"
+                className="text-[#01411C] hover:text-[#01411C]"
               >
                 {isCollapsed ? <Menu size={24} /> : <X size={24} />}
               </Button>
@@ -67,7 +67,7 @@ const NavBar = () => {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="flex items-center space-x-4 px-4 py-2 hover:text-[#bcfd49] transition text-[#bcfd49]"
+                    className="flex items-center space-x-4 px-4 py-2 text-[#01411C] transition-all duration-300 transform hover:text-[#ff6f00] hover:scale-110 hover:shadow-lg"
                   >
                     {item.icon}
                     {!isCollapsed && <span>{item.text}</span>}
@@ -82,10 +82,10 @@ const NavBar = () => {
             <Button
               variant="ghost"
               aria-label="Open Menu"
-              className="fixed top-4 left-4 bg-[#000401]"
+              className="fixed top-4 left-4 bg-[#F0F0F0]"
               onClick={() => setIsOpen(true)}
             >
-              <Menu size={24} className="text-[#bcfd49]" />
+              <Menu size={24} className="text-[#01411C]" />
             </Button>
 
             {/* Mobile Sidebar */}
@@ -94,20 +94,21 @@ const NavBar = () => {
                 initial={{ x: "-100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "-100%" }}
-                className="fixed top-0 left-0 w-64 h-full bg-[#000401] shadow-lg"
+                className="fixed top-0 left-0 w-64 h-full bg-[#F0F0F0] shadow-lg"
               >
                 <div className="flex justify-between p-4">
-                  {/* Title aligned to the left */}
                   <div className="text-left space-y-2">
-                    <h1 className="text-3xl font-extrabold text-[#bcfd49] transition-all duration-300">
-                      <div className="text-4xl font-extrabold text-[#fff]">
-                        Royal{" "}
-                        <span className="text-5xl font-extrabold text-[#ffc400]">
+                    <h1 className="transition-all duration-300">
+                      <div className="flex items-baseline">
+                        <span className="text-5xl font-extrabold font-merriweather text-[#01411C]">
+                          Royal
+                        </span>
+                        <span className="text-5xl font-extrabold text-[#ffc400] ml-2">
                           9
                         </span>
                       </div>
                     </h1>
-                    <div className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#ff6f00] to-[#bcfd49] italic">
+                    <div className="text-2xl font-semibold font-merriweather text-transparent bg-clip-text bg-gradient-to-r from-[#ff6f00] to-[#bcfd49] italic">
                       Engine Oil
                     </div>
                   </div>
@@ -115,9 +116,9 @@ const NavBar = () => {
                   <Button
                     variant="ghost"
                     onClick={() => setIsOpen(false)}
-                    className="C"
+                    className="text-[#01411C]"
                   >
-                    <X size={24} className="text-[#bcfd49]" />
+                    <X size={24} />
                   </Button>
                 </div>
 
@@ -126,7 +127,7 @@ const NavBar = () => {
                     <li key={item.href}>
                       <a
                         href={item.href}
-                        className="flex items-center justify-center space-x-4 py-2 text-[#bcfd49] hover:text-[#bcfd49] transition duration-300"
+                        className="flex items-center space-x-4 px-4 py-2 text-[#01411C] transition-all duration-300 transform hover:text-[#ff6f00] hover:scale-110 hover:shadow-lg"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.icon}
@@ -143,7 +144,7 @@ const NavBar = () => {
         <main
           className={`flex-1 transition-all duration-300 ${
             isCollapsed ? "lg:ml-20" : "lg:ml-64"
-          } ml-0 text-[#bcfd49]`}
+          } ml-0 text-[#01411C]`}
         ></main>
       </div>
     </>

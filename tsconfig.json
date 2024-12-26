@@ -1,26 +1,33 @@
 {
   "compilerOptions": {
-    "target": "ES2017",                   // Use ES2017 to ensure compatibility with Next.js
-    "lib": ["dom", "dom.iterable", "esnext"], // Include necessary libraries
-    "allowJs": true,                      // Allow JavaScript files
-    "skipLibCheck": true,                 // Skip type checking of declaration files
-    "strict": false,                      // Disable strict type checking for deployment
-    "noEmitOnError": false,               // Emit output even if there are errors
-    "esModuleInterop": true,              // Enable ES module interoperability
-    "module": "esnext",                   // Use modern ES module syntax
-    "moduleResolution": "node",           // Use node resolution for modules
-    "resolveJsonModule": true,            // Allow importing JSON files
-    "isolatedModules": true,              // Ensures that each file is treated as an isolated module
-    "jsx": "preserve",                   // Let Next.js handle JSX transformation
-    "incremental": true,                 // Enable incremental builds for faster compilation
+    "target": "ES2017", // Use ES2017 to ensure compatibility with Next.js
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ], // Include necessary libraries
+    "allowJs": true, // Allow JavaScript files
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "strict": false, // Disable strict type checking for deployment
+    "noEmitOnError": false, // Emit output even if there are errors
+    "esModuleInterop": true, // Enable ES module interoperability
+    "module": "esnext", // Use modern ES module syntax
+    "moduleResolution": "node", // Use node resolution for modules
+    "resolveJsonModule": true, // Allow importing JSON files
+    "isolatedModules": true, // Ensures that each file is treated as an isolated module
+    "jsx": "preserve", // Let Next.js handle JSX transformation
+    "incremental": true, // Enable incremental builds for faster compilation
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": ["./*"] // Simplifies imports for components
-    }
+      "@/*": [
+        "./*"
+      ] // Simplifies imports for components
+    },
+    "noEmit": true
   },
   "include": [
     "next-env.d.ts",
