@@ -42,7 +42,7 @@ const Body = () => {
       category: "Development",
     },
     {
-      image: "/4.jpg",
+      image: "/4.jpeg",
       title: "Comprehensive Product Line",
       description:
         "From synthetic to mineral oils, we have the right product for every engine type and application.",
@@ -78,7 +78,7 @@ const Body = () => {
         "How Often Should You Change Your Engine Oil? Debunking Common Myths",
       desc: "Trusted by professionals worldwide.",
       fullDesc:
-        "Many myths surround oil changes, such as changing oil every 3,000 miles. However, modern oils and engines allow for longer intervals between changes, depending on the manufacturer’s recommendations and your driving conditions.",
+        "Many myths surround oil changes, such as changing oil every 3,000 miles. However, modern oils and engines allow for longer intervals between changes, depending on the manufacturer's recommendations and your driving conditions.",
     },
     {
       title:
@@ -93,47 +93,48 @@ const Body = () => {
     <section className="min-h-screen bg-white">
       {/* Header Section */}
       <div className="bg-[#01411C] py-10">
-  <div className="max-w-6xl mx-auto px-4 text-center text-white">
-    <h1
-      className="text-6xl sm:text-5xl font-bold leading-tight"
-      style={{ fontFamily: "'Playfair Display', serif" }}
-    >
-      <span>
-        Royal <span className="text-[#ffc400]">9</span>
-      </span>
-      <br className="sm:hidden" />
-      <em className="bg-clip-text text-transparent bg-gradient-to-r from-[#ff6f00] to-[#bcfd49] italic sm:ml-2">
-        Engine Oil
-      </em>
-    </h1>
-    <p
-      className="text-lg sm:text-xl font-semibold mt-4"
-      style={{
-        fontFamily: "'Merriweather', serif",
-      }}
-    >
-      Where Performance Meets Power
-    </p>
-  </div>
-</div>
-
+        <div className="max-w-6xl mx-auto px-4 text-center text-white">
+          <h1
+            className="text-6xl sm:text-5xl font-bold leading-tight"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            <span>
+              Royal <span className="text-[#ffc400]">9</span>
+            </span>
+            <br className="sm:hidden" />
+            <em className="bg-clip-text text-transparent bg-gradient-to-r from-[#ff6f00] to-[#bcfd49] italic sm:ml-2">
+              Engine Oil
+            </em>
+          </h1>
+          <p
+            className="text-lg sm:text-xl font-semibold mt-4"
+            style={{
+              fontFamily: "'Merriweather', serif",
+            }}
+          >
+            Where Performance Meets Power
+          </p>
+        </div>
+      </div>
 
       {/* Body Content */}
-      <div className="pt-16 sm:pt-20 lg:pt-24 px-4 sm:px-6 lg:px-8">
+      <div className="pt-0">
         {/* Carousel Section */}
-        <div className="mt-6 sm:mt-10">
-          <Carousel setApi={setApi}>
+        <div className="w-full">
+          {/* Carousel with full width */}
+          <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
               {slides.map((slide, index) => (
                 <CarouselItem key={index}>
-                  <div className="relative overflow-hidden rounded-lg">
+                  <div className="relative overflow-hidden">
                     <Image
                       src={slide.image}
                       alt={slide.title}
-                      width={800}
-                      height={450}
+                      width={1200}
+                      height={600}
                       className="w-full h-auto object-cover"
                       priority={index === 0}
+                      sizes="100vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute bottom-4 left-4 text-white space-y-2">
@@ -143,9 +144,7 @@ const Body = () => {
                       <h3 className="text-lg sm:text-xl font-bold">
                         {slide.title}
                       </h3>
-                      <p className="text-sm sm:text-base">
-                        {slide.description}
-                      </p>
+                      <p className="text-sm sm:text-base">{slide.description}</p>
                     </div>
                   </div>
                 </CarouselItem>
@@ -168,39 +167,41 @@ const Body = () => {
         </div>
 
         {/* Blog Section with Read More/Read Less */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 sm:mt-12">
-          {blogPosts.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white shadow-lg rounded-lg p-6 text-center hover:bg-gray-50 transition-all duration-300 ease-in-out"
-            >
-              <h3 className="text-xl font-semibold text-gray-800 hover:text-green-600 transition-all duration-200 ease-in-out">
-                {item.title}
-              </h3>
-              <p className="text-sm text-gray-600 mt-2 truncate">{item.desc}</p>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 sm:mt-12">
+            {blogPosts.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white shadow-lg rounded-lg p-6 text-center hover:bg-gray-50 transition-all duration-300 ease-in-out"
+              >
+                <h3 className="text-xl font-semibold text-gray-800 hover:text-green-600 transition-all duration-200 ease-in-out">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-600 mt-2 truncate">{item.desc}</p>
 
-              <div className="flex justify-between items-center mt-4">
-                {/* Expandable Content */}
-                {expandedIndex === index && (
-                  <div className="mt-2 text-sm text-gray-700">
-                    <p>{item.fullDesc}</p>
-                  </div>
-                )}
+                <div className="flex justify-between items-center mt-4">
+                  {/* Expandable Content */}
+                  {expandedIndex === index && (
+                    <div className="mt-2 text-sm text-gray-700">
+                      <p>{item.fullDesc}</p>
+                    </div>
+                  )}
 
-                {/* Read More Button */}
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setExpandedIndex(expandedIndex === index ? null : index); // Toggle expansion
-                  }}
-                  className="inline-block text-green-600 font-medium text-sm hover:text-green-700 transition duration-200 ease-in-out"
-                >
-                  {expandedIndex === index ? "Read Less ←" : "Read More →"}
-                </a>
+                  {/* Read More Button */}
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setExpandedIndex(expandedIndex === index ? null : index);
+                    }}
+                    className="inline-block text-green-600 font-medium text-sm hover:text-green-700 transition duration-200 ease-in-out"
+                  >
+                    {expandedIndex === index ? "Read Less ←" : "Read More →"}
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
