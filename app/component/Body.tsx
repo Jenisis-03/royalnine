@@ -92,16 +92,31 @@ const Body = () => {
   return (
     <section className="min-h-screen bg-white">
       {/* Header Section */}
-      <div className="bg-green-600 py-10">
-        <div className="max-w-6xl mx-auto px-4 text-center text-white">
-          <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
-            Royal 9 Engine Oil
-          </h1>
-          <p className="text-lg sm:text-xl font-semibold mt-2">
-            Where Performance Meets Power
-          </p>
-        </div>
-      </div>
+      <div className="bg-[#01411C] py-10">
+  <div className="max-w-6xl mx-auto px-4 text-center text-white">
+    <h1
+      className="text-6xl sm:text-5xl font-bold leading-tight"
+      style={{ fontFamily: "'Playfair Display', serif" }}
+    >
+      <span>
+        Royal <span className="text-[#ffc400]">9</span>
+      </span>
+      <br className="sm:hidden" />
+      <em className="bg-clip-text text-transparent bg-gradient-to-r from-[#ff6f00] to-[#bcfd49] italic sm:ml-2">
+        Engine Oil
+      </em>
+    </h1>
+    <p
+      className="text-lg sm:text-xl font-semibold mt-4"
+      style={{
+        fontFamily: "'Merriweather', serif",
+      }}
+    >
+      Where Performance Meets Power
+    </p>
+  </div>
+</div>
+
 
       {/* Body Content */}
       <div className="pt-16 sm:pt-20 lg:pt-24 px-4 sm:px-6 lg:px-8">
