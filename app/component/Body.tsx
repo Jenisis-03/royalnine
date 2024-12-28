@@ -1,113 +1,144 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+import { cn } from "../../lib/utils"; // Assuming the `cn` function is located in the `utils` folder.
+import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-
-interface CarouselApi {
-  scrollNext: () => void;
-  scrollTo: (index: number) => void;
-}
+import React, { useState } from "react";
 
 const Body = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [api, setApi] = useState<CarouselApi | undefined>(undefined);
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-
-  const slides = [
+  const data = [
     {
-      image: "/1.jpg",
-      title: "Premium Engine Oils for Your Vehicle",
-      description:
-        "Our engine oils are designed to maximize performance, extend engine life, and improve fuel efficiency.",
       category: "Technology",
+      title: "Premium Engine Oils for Your Vehicle",
+      src: "/1.jpg",
+      content: (
+        <div className="p-8 bg-white rounded-xl">
+          <p className="text-gray-700 text-base md:text-lg">
+            Our engine oils are designed to maximize performance, extend engine
+            life, and improve fuel efficiency.
+          </p>
+          <Image
+            src="/1.jpg"
+            alt="Engine oil"
+            height={300}
+            width={300}
+            className="w-full h-auto rounded-lg mt-4"
+          />
+        </div>
+      ),
     },
     {
-      image: "/2.jpg",
       title: "Committed to Sustainability",
-      description:
-        "Eco-friendly, biodegradable oils that reduce emissions and protect the environment.",
-      category: "Development",
+      src: "/2.jpg",
+      content: (
+        <div className="p-8 bg-white rounded-xl">
+          <p className="text-gray-700 text-base md:text-lg">
+            Eco-friendly, biodegradable oils that reduce emissions and protect
+            the environment.
+          </p>
+          <Image
+            src="/2.jpg"
+            alt="Sustainability"
+            height={300}
+            width={300}
+            className="w-full h-auto rounded-lg mt-4"
+          />
+        </div>
+      ),
     },
     {
-      image: "/3.jpg",
+      category: "Development",
       title: "Engineered for Excellence",
-      description:
-        "Advanced oil formulations feature cutting-edge technology to meet the needs of modern engines.",
-      category: "Development",
+      src: "/3.jpg",
+      content: (
+        <div className="p-8 bg-white rounded-xl">
+          <p className="text-gray-700 text-base md:text-lg">
+            Advanced oil formulations feature cutting-edge technology to meet
+            the needs of modern engines.
+          </p>
+          <Image
+            src="/3.jpg"
+            alt="Excellence"
+            height={300}
+            width={300}
+            className="w-full h-auto rounded-lg mt-4"
+          />
+        </div>
+      ),
     },
     {
-      image: "/4.jpeg",
+      category: "Development",
       title: "Comprehensive Product Line",
-      description:
-        "From synthetic to mineral oils, we have the right product for every engine type and application.",
-      category: "Development",
+      src: "/4.jpeg",
+      content: (
+        <div className="p-8 bg-white rounded-xl">
+          <p className="text-gray-700 text-base md:text-lg">
+            From synthetic to mineral oils, we have the right product for every
+            engine type and application.
+          </p>
+          <Image
+            src="/4.jpeg"
+            alt="Product Line"
+            height={300}
+            width={300}
+            className="w-full h-auto rounded-lg mt-4"
+          />
+        </div>
+      ),
     },
   ];
 
-  useEffect(() => {
-    if (!api) return;
-    const timer = setInterval(() => {
-      api.scrollNext();
-      setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [api, slides.length]);
-
-  const blogPosts = [
-    {
-      title:
-        "Why Engine Oil is the Lifeblood of Your Car: Understanding Its Importance",
-      desc: "Industry-leading formulation for superior performance.",
-      fullDesc:
-        "Engine oil serves multiple purposes: it lubricates engine parts, prevents corrosion, reduces friction, and helps cool the engine. Regular maintenance of oil is crucial for keeping your car's engine in peak condition.",
-    },
-    {
-      title: "Choosing the Right Engine Oil: What You Need to Know",
-      desc: "Advanced technology for modern engines.",
-      fullDesc:
-        "Choosing the right oil for your engine is vital for maximizing engine efficiency and performance. The right viscosity, additives, and type of oil (synthetic, semi-synthetic, or conventional) can extend the life of your engine.",
-    },
-    {
-      title:
-        "How Often Should You Change Your Engine Oil? Debunking Common Myths",
-      desc: "Trusted by professionals worldwide.",
-      fullDesc:
-        "Many myths surround oil changes, such as changing oil every 3,000 miles. However, modern oils and engines allow for longer intervals between changes, depending on the manufacturer's recommendations and your driving conditions.",
-    },
-    {
-      title:
-        "Synthetic vs. Conventional Oil: Which One is Best for Your Engine?",
-      desc: "Optimized for maximum engine protection.",
-      fullDesc:
-        "Synthetic oil offers superior protection for your engine, especially in extreme temperatures. Conventional oil is a cost-effective option for older engines, but synthetic oil is better for newer models requiring higher performance.",
-    },
-  ];
+  const cards = data.map((card, index) => (
+    <Card key={card.src} card={card} index={index} />
+  ));
 
   return (
-    <section className="min-h-screen bg-white">
+    <section className={cn("min-h-screen", "bg-white")}>
       {/* Header Section */}
-      <div className="bg-[#01411C] py-10">
-        <div className="max-w-6xl mx-auto px-4 text-center text-white">
+      <div className={cn("bg-[#01411C]", "py-10")}>
+        {" "}
+        {/* Set padding to 0 */}
+        <div
+          className={cn(
+            "max-w-6xl",
+            "mx-auto",
+            "px-4",
+            "text-center",
+            "text-white"
+          )}
+        >
           <h1
-            className="text-6xl sm:text-5xl font-bold leading-tight"
+            className={cn(
+              "text-4xl sm:text-5xl md:text-6xl",
+              "font-bold",
+              "leading-tight"
+            )}
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             <span>
               Royal <span className="text-[#ffc400]">9</span>
             </span>
             <br className="sm:hidden" />
-            <em className="bg-clip-text text-transparent bg-gradient-to-r from-[#ff6f00] to-[#bcfd49] italic sm:ml-2">
+            <em
+              className={cn(
+                "bg-clip-text",
+                "text-transparent",
+                "bg-gradient-to-r",
+                "from-[#ff6f00]",
+                "to-[#bcfd49]",
+                "italic",
+                "sm:ml-2"
+              )}
+            >
               Engine Oil
             </em>
           </h1>
           <p
-            className="text-lg sm:text-xl font-semibold mt-4"
+            className={cn(
+              "text-sm sm:text-2lg md:text-2xl",
+              "font-semibold",
+              "mt-5"
+            )}
             style={{
               fontFamily: "'Merriweather', serif",
             }}
@@ -117,92 +148,11 @@ const Body = () => {
         </div>
       </div>
 
-      {/* Body Content */}
-      <div className="pt-0">
-        {/* Carousel Section */}
-        <div className="w-full">
-          {/* Carousel with full width */}
-          <Carousel setApi={setApi} className="w-full">
-            <CarouselContent>
-              {slides.map((slide, index) => (
-                <CarouselItem key={index}>
-                  <div className="relative overflow-hidden">
-                    <Image
-                      src={slide.image}
-                      alt={slide.title}
-                      width={1200}
-                      height={600}
-                      className="w-full h-auto object-cover"
-                      priority={index === 0}
-                      sizes="100vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 text-white space-y-2">
-                      <span className="bg-green-600 px-3 py-1 text-sm rounded-full">
-                        {slide.category}
-                      </span>
-                      <h3 className="text-lg sm:text-xl font-bold">
-                        {slide.title}
-                      </h3>
-                      <p className="text-sm sm:text-base">{slide.description}</p>
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-
-            <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
-              {slides.map((_, index) => (
-                <Button
-                  key={index}
-                  className={`w-3 h-3 rounded-full ${activeIndex === index ? "bg-green-600" : "bg-gray-300"}`}
-                  onClick={() => {
-                    api?.scrollTo(index);
-                    setActiveIndex(index);
-                  }}
-                />
-              ))}
-            </div>
-          </Carousel>
-        </div>
-
-        {/* Blog Section with Read More/Read Less */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 sm:mt-12">
-            {blogPosts.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-lg rounded-lg p-6 text-center hover:bg-gray-50 transition-all duration-300 ease-in-out"
-              >
-                <h3 className="text-xl font-semibold text-gray-800 hover:text-green-600 transition-all duration-200 ease-in-out">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-gray-600 mt-2 truncate">{item.desc}</p>
-
-                <div className="flex justify-between items-center mt-4">
-                  {/* Expandable Content */}
-                  {expandedIndex === index && (
-                    <div className="mt-2 text-sm text-gray-700">
-                      <p>{item.fullDesc}</p>
-                    </div>
-                  )}
-
-                  {/* Read More Button */}
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setExpandedIndex(expandedIndex === index ? null : index);
-                    }}
-                    className="inline-block text-green-600 font-medium text-sm hover:text-green-700 transition duration-200 ease-in-out"
-                  >
-                    {expandedIndex === index ? "Read Less ←" : "Read More →"}
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      {/* Carousel Section */}
+      <div className="w-full py-0 px-4 sm:px-6 md:px-8">
+        {" "}
+        {/* Set padding to 0 */}
+        <Carousel items={cards} />
       </div>
     </section>
   );

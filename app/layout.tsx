@@ -5,7 +5,7 @@ import NavBar from "./component/NavBar"; // Import the navigation bar component
 export const metadata = {
   title: "Royal 9 Engine Oil",
   description:
-    "Where <Progress></Progress>erformance Meets Power",
+    "Where performance Meets Power",
 };
 
 export default function RootLayout({
