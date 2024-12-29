@@ -8,7 +8,6 @@ import React, { useState } from "react";
 const Body = () => {
   const data = [
     {
-      category: "Technology",
       title: "Premium Engine Oils for Your Vehicle",
       src: "/1.jpg",
       content: (
@@ -19,7 +18,7 @@ const Body = () => {
           </p>
           <Image
             src="/1.jpg"
-            alt="Engine oil"
+            alt="Premium engine oil for high-performance vehicles"
             height={300}
             width={300}
             className="w-full h-auto rounded-lg mt-4"
@@ -38,7 +37,7 @@ const Body = () => {
           </p>
           <Image
             src="/2.jpg"
-            alt="Sustainability"
+            alt="Sustainable engine oils"
             height={300}
             width={300}
             className="w-full h-auto rounded-lg mt-4"
@@ -47,7 +46,6 @@ const Body = () => {
       ),
     },
     {
-      category: "Development",
       title: "Engineered for Excellence",
       src: "/3.jpg",
       content: (
@@ -58,7 +56,7 @@ const Body = () => {
           </p>
           <Image
             src="/3.jpg"
-            alt="Excellence"
+            alt="Engine excellence through advanced oil technology"
             height={300}
             width={300}
             className="w-full h-auto rounded-lg mt-4"
@@ -67,7 +65,6 @@ const Body = () => {
       ),
     },
     {
-      category: "Development",
       title: "Comprehensive Product Line",
       src: "/4.jpeg",
       content: (
@@ -78,7 +75,7 @@ const Body = () => {
           </p>
           <Image
             src="/4.jpeg"
-            alt="Product Line"
+            alt="Complete range of engine oils"
             height={300}
             width={300}
             className="w-full h-auto rounded-lg mt-4"
@@ -87,7 +84,6 @@ const Body = () => {
       ),
     },
   ];
-
   const cards = data.map((card, index) => (
     <Card key={card.src} card={card} index={index} />
   ));
@@ -96,14 +92,12 @@ const Body = () => {
     <section className={cn("min-h-screen", "bg-white")}>
       {/* Header Section */}
       <div className={cn("bg-[#01411C]", "py-10")}>
-        {" "}
-        {/* Set padding to 0 */}
         <div
           className={cn(
             "max-w-6xl",
             "mx-auto",
             "px-4",
-            "text-center",
+            "text-left", // Align header text to the left
             "text-white"
           )}
         >
@@ -150,8 +144,6 @@ const Body = () => {
 
       {/* Carousel Section */}
       <div className="w-full py-0 px-4 sm:px-6 md:px-8">
-        {" "}
-        {/* Set padding to 0 */}
         <Carousel items={cards} />
       </div>
     </section>
