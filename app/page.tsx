@@ -1,15 +1,14 @@
 // app/page.tsx
 //import Header from './component/Header';
-import Body from './component/Body';
-import Products from './component/Products';
-import Blog from './component/Blog';
-import Footer from './component/Footer';
+import Body from "./component/Body";
+import Products from "./component/Products";
+//import Blog from "./component/Blog";
+import Footer from "./component/Footer";
 
 export default function HomePage() {
   return (
     <div>
       {/* Header Section */}
-      
 
       {/* Body Section */}
       <Body />
@@ -18,7 +17,6 @@ export default function HomePage() {
       <Products />
 
       {/* Blog Section */}
-      <Blog />
 
       {/* Footer Section */}
       <Footer />
