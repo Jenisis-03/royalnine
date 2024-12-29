@@ -3,7 +3,6 @@
 import { cn } from "../../lib/utils"; // Assuming the `cn` function is located in the `utils` folder.
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import Image from "next/image";
-import React, { useState } from "react";
 
 const Body = () => {
   const data = [
