@@ -8,6 +8,7 @@ import React, { useState } from "react";
 const Body = () => {
   const data = [
     {
+      category: "Engine Oils", // Added category
       title: "Premium Engine Oils for Your Vehicle",
       src: "/1.jpg",
       content: (
@@ -27,6 +28,7 @@ const Body = () => {
       ),
     },
     {
+      category: "Sustainability", // Added category
       title: "Committed to Sustainability",
       src: "/2.jpg",
       content: (
@@ -46,6 +48,7 @@ const Body = () => {
       ),
     },
     {
+      category: "Technology", // Added category
       title: "Engineered for Excellence",
       src: "/3.jpg",
       content: (
@@ -65,6 +68,7 @@ const Body = () => {
       ),
     },
     {
+      category: "Products", // Added category
       title: "Comprehensive Product Line",
       src: "/4.jpeg",
       content: (
